@@ -1,0 +1,19 @@
+{
+    "name": "travel-blog",
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start"
+    },
+    "dependencies": {
+        "@emotion/react": "^11.13.0",
+        "@emotion/styled": "^11.13.0",
+        "@mui/icons-material": "^5.16.7",
+        "@mui/lab": "^5.0.0-alpha.173",
+        "@mui/material": "^5.16.7",
+        "next": "^13.2.4",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    }
+}
