@@ -1,0 +1,15 @@
+__turbopack_load_page_chunks__("/_app", [
+  "static/chunks/node_modules_next_dist_compiled_8ca6b690._.js",
+  "static/chunks/node_modules_next_dist_shared_lib_8bac8163._.js",
+  "static/chunks/node_modules_next_dist_client_5a8a528e._.js",
+  "static/chunks/node_modules_next_dist_41ce5ee3._.js",
+  "static/chunks/node_modules_react_e3593a73._.js",
+  "static/chunks/node_modules_react-dom_cjs_react-dom_development_2b5e0eb3.js",
+  "static/chunks/node_modules_react-dom_8a8085df._.js",
+  "static/chunks/node_modules_@mui_system_11413824._.js",
+  "static/chunks/node_modules_0c0a82a5._.js",
+  "static/chunks/[root-of-the-server]__c82633b2._.js",
+  "static/chunks/styles_PlaneAnimation_module_f17665e3.css",
+  "static/chunks/pages__app_2da965e7._.js",
+  "static/chunks/turbopack-pages__app_314d469a._.js"
+])

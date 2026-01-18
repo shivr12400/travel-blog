@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 40, "column": 0}, "map": {"version":3,"sources":["file:///Users/shivrathod/Desktop/Projects/travel-blog/pages/_document.js"],"sourcesContent":["// pages/_document.js\n\nimport Document, { Html, Head, Main, NextScript } from 'next/document';\n\nclass MyDocument extends Document {\n  render() {\n    return (\n      <Html>\n        <Head>\n          <link\n            rel=\"stylesheet\"\n            href=\"https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap\"\n          />\n        </Head>\n        <body>\n          <Main />\n          <NextScript />\n        </body>\n      </Html>\n    );\n  }\n}\n\nexport default MyDocument;"],"names":[],"mappings":";;;;;AAAA,qBAAqB;AAErB;;;AAEA,MAAM,mBAAmB,oIAAQ;IAC/B,SAAS;QACP,qBACE,qKAAC,iIAAI;;8BACH,qKAAC,iIAAI;8BACH,cAAA,qKAAC;wBACC,KAAI;wBACJ,MAAK;;;;;;;;;;;8BAGT,qKAAC;;sCACC,qKAAC,iIAAI;;;;;sCACL,qKAAC,uIAAU;;;;;;;;;;;;;;;;;IAInB;AACF;uCAEe"}}]
+}
