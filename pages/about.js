@@ -14,7 +14,7 @@ import Footer from '../components/Footer';
 const StyledPaper = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(4),
   margin: theme.spacing(4, 0),
-  backgroundColor: theme.palette.background.default,
+  backgroundColor: '#F0F7F4',
   boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .1)',
 }));
 

@@ -24,10 +24,10 @@ const StyledCard = styled(Card)(({ theme }) => ({
 }));
 
 const CardButton = styled(Button)(({ theme }) => ({
-  backgroundColor: theme.palette.cardButton.background,
-  color: theme.palette.cardButton.text,
+  backgroundColor: '#F0F7F4',
+  color: '#F0F7F4',
   '&:hover': {
-    backgroundColor: theme.palette.cardButton.background,
+    backgroundColor: '#F0F7F4',
     opacity: 0.9,
   },
 }));

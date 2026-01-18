@@ -16,8 +16,8 @@ const BackButton = () => {
         position: 'absolute',
         top: 13,
         left: 20,
-        backgroundColor: theme.palette.background.paper,
-        color: theme.palette.text.primary,
+        backgroundColor: theme.palette.grey[300],
+        color: theme.palette.grey[300],
         boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
         '&:hover': {
           backgroundColor: theme.palette.action.hover,

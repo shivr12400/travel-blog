@@ -42,10 +42,10 @@ const StyledButton = styled(Button)(({ theme }) => ({
 }));
 
 const NavButton = styled(Button)(({ theme }) => ({
-    color: theme.palette.navText.main,
+    color: '#F0F7F4',
     '&:hover': {
-      backgroundColor: theme.palette.navHover.main,
-      color: theme.palette.navHoverText.main,
+      backgroundColor: '#B3BFB8',
+      color: '#3C493F',
     },
   }));
 
