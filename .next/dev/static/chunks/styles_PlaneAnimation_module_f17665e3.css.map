@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["file:///Users/shivrathod/Desktop/Projects/travel-blog/styles/PlaneAnimation.module.css"],"sourcesContent":[".planeAnimation {\n    position: fixed;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    background-color: #3C493F;\n    z-index: 9999;\n    overflow: hidden;\n  }\n  \n  .plane {\n    position: absolute;\n    font-size: 40px;\n    animation: fly 3s linear forwards;\n    color: white;\n  }\n  \n  .trail {\n    position: absolute;\n    height: 2px;\n    background-color: transparent;\n    animation: trail 3s linear forwards;\n    \n  }\n  \n  @keyframes fly {\n    0% {\n      left: -150px;\n      top: 50%;\n    }\n    100% {\n      left: 100%;\n      top: 50%;\n    }\n  }\n  \n  @keyframes trail {\n    0% {\n      width: 0;\n      left: -50px;\n      top: calc(50% + 20px);\n    }\n    100% {\n      width: calc(100% + 100px);\n      left: -50px;\n      top: calc(20% + 20px);\n    }\n  }"],"names":[],"mappings":"AAAA;;;;;;;;;;;AAWE;;;;;;;AAOA;;;;;;;AAQA;;;;;;;;;;;;AAWA"}}]
-}
