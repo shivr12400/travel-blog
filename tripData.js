@@ -9,12 +9,14 @@ export const data = {
           {
             location: "Narita Airport",
             description: "Landed and picked up JR Pass.",
+            coordinates: [39.6929, -75.0744],
             category: "Travel",
             image: "/images/delBoat.jpg"
           },
           {
             location: "Shinjuku",
             description: "Checked into the hotel and found a ramen spot.",
+            coordinates: [38.6929, -75.0744],
             category: "Food",
             image: "/images/delBoat.jpg"
           }
@@ -29,12 +31,14 @@ export const data = {
           {
             location: "Narita Airport",
             description: "Landed and picked up JR Pass.",
+            coordinates: [38.6929, -76.0744],
             category: "Travel",
             image: "/images/delBoat.jpg"
           },
           {
             location: "Shinjuku",
             description: "Checked into the hotel and found a ramen spot.",
+            coordinates: [38.6929, -75.0744],
             category: "Food",
             image: "/images/delBoat.jpg"
           }
@@ -49,12 +53,14 @@ export const data = {
           {
             location: "Narita Airport",
             description: "Landed and picked up JR Pass.",
+            coordinates: [38.6929, -65.0744],
             category: "Travel",
             image: "/images/delBoat.jpg"
           },
           {
             location: "Shinjuku",
             description: "Checked into the hotel and found a ramen spot.",
+            coordinates: [38.6929, -75.0744],
             category: "Food",
             image: "/images/delBoat.jpg"
           }

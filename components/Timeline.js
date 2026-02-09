@@ -11,8 +11,13 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { Chip, Box, styled } from '@mui/material';
+import dynamic from 'next/dynamic'; // <--- 1. Import Dynamic
 
-// ACCEPT PROPS: Added 'selectedCategories' to props
+// <--- 2. Import the map with SSR disabled
+const TripMap = dynamic(() => import('./TripMap'), {
+  ssr: false
+});
+
 const TripTimeline = ({ tripData, selectedCategories = [] }) => {
 
     const StyledChip = styled(Chip)(({ theme }) => ({
@@ -21,10 +26,8 @@ const TripTimeline = ({ tripData, selectedCategories = [] }) => {
         fontWeight: 500
     }));
 
-    // Helper: Check if filters are active
     const hasFilter = selectedCategories.length > 0;
 
-    // Helper: Render a single activity block
     const renderActivity = (location, description, image, category, key) => (
         <Box key={key} sx={{ mb: 3, display: 'flex', flexDirection: 'column' }}>
             <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', mb: 1 }}>
@@ -64,26 +67,14 @@ const TripTimeline = ({ tripData, selectedCategories = [] }) => {
         <Container maxWidth="md" sx={{ py: 4 }}>
             <Timeline position="alternate">
                 {tripData.map((day, index) => {
-                    // --- FILTERING LOGIC ---
-                    
-                    // 1. Determine which activities match the filter
-                    // If no filter is active, show all. Otherwise, only show matching ones.
                     let visibleActivities = day.activities || [];
                     if (hasFilter && day.activities) {
                         visibleActivities = day.activities.filter(act => 
-                            // Show if it has no category (generic) or matches filter
                             !act.category || selectedCategories.includes(act.category)
                         );
                     }
 
-                    // 2. Check if the Day itself matches (Legacy/High-level category)
                     const dayMatches = !hasFilter || (day.category && selectedCategories.includes(day.category));
-
-                    // 3. Final Visibility Check
-                    // Show the day if:
-                    // A) The day's main category matches
-                    // B) OR it has activities that match
-                    // C) OR it uses the old single-item structure and matches
                     const isDayVisible = dayMatches || visibleActivities.length > 0;
 
                     if (!isDayVisible) return null;
@@ -97,7 +88,6 @@ const TripTimeline = ({ tripData, selectedCategories = [] }) => {
                             <TimelineContent>
                                 <Card sx={{ maxWidth: 1000, mb: 2, boxShadow: 3 }}>
                                     <CardContent>
-                                        {/* --- Day Header --- */}
                                         <Box sx={{ mb: 3, borderBottom: '1px solid #eee', pb: 2 }}>
                                             <Typography variant="h6" component="div" sx={{ fontWeight: 'bold', color: '#333' }}>
                                                 Day {day.day}: {day.name}
@@ -114,8 +104,6 @@ const TripTimeline = ({ tripData, selectedCategories = [] }) => {
                                             </Box>
                                         </Box>
 
-                                        {/* --- Content Logic --- */}
-                                        {/* If the data structure has an 'activities' array, use our filtered list */}
                                         {day.activities ? (
                                             visibleActivities.length > 0 ? (
                                                 visibleActivities.map((activity, i) => 
@@ -127,13 +115,8 @@ const TripTimeline = ({ tripData, selectedCategories = [] }) => {
                                                         i
                                                     )
                                                 )
-                                            ) : (
-                                                // If day matches but all activities were filtered out, show a message or nothing?
-                                                // Currently showing nothing (just header) which is correct behavior.
-                                                null
-                                            )
+                                            ) : null
                                         ) : (
-                                            /* Fallback for old data structure (Single Item) */
                                             renderActivity(
                                                 day.location, 
                                                 day.description, 
@@ -142,6 +125,12 @@ const TripTimeline = ({ tripData, selectedCategories = [] }) => {
                                                 'single'
                                             )
                                         )}
+
+                                        {/* <--- 3. Use the TripMap Component here */}
+                                        {day.activities && visibleActivities.length > 0 && (
+                                            <TripMap activities={visibleActivities} />
+                                        )}
+
                                     </CardContent>
                                 </Card>
                             </TimelineContent>
