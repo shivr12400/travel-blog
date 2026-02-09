@@ -1,21 +1,66 @@
 export const data = {
     delaware: [
-        {
-            day: 1,
-            name: "Delaware",
-            date: 'August 10, 2024',
-            description: 'Left home at 5am, reached bethany house at 9:30am. Road trip was nice, had to stop twice to get charge. Once I reached everyone was slowly getting up. We rushed to the boat dock and hopped on the boat. The festivities began and we had to dodge all the sand bars. We stopped in this muddy area but after a little bit everyone said fuck it and hopped in. On the way back we went to the actual sand bar and hung out over there. Went back to the house, showered and then left for Secrets. That place was fun, so many different areas - live music, EDM, club, would defintely go back. Had to deal with some friend drama at the end of the night LOL',
-            image: '/images/delBoat.jpg',
-            category: 'Beach',
-        },
-        {
-            day: 2,
-            date: 'August 11, 2024',
-            name: "Delaware",
-            description: 'Woke up pretty early, got ready and left at 11am. Got Dunkin w the group and then hit the road with Akriti and Hari. Good to have company at least one of the ways. Screaming PIGEON the whole way back. Got home at 5:30 because of the hr charging wait at Wilimgton. Screw electric cards for long drives',
-            image: '/images/delcar.jpg',
-            category: 'Travel'
-        },
+      {
+        day: 1,
+        name: "Arrival & Exploration",
+        date: "Oct 12, 2023",
+        // NEW: Use 'activities' array for multiple items
+        activities: [
+          {
+            location: "Narita Airport",
+            description: "Landed and picked up JR Pass.",
+            category: "Travel",
+            image: "/images/delBoat.jpg"
+          },
+          {
+            location: "Shinjuku",
+            description: "Checked into the hotel and found a ramen spot.",
+            category: "Food",
+            image: "/images/delBoat.jpg"
+          }
+        ]
+      },
+      {
+        day: 2,
+        name: "Arrival & Exploration",
+        date: "Oct 12, 2023",
+        // NEW: Use 'activities' array for multiple items
+        activities: [
+          {
+            location: "Narita Airport",
+            description: "Landed and picked up JR Pass.",
+            category: "Travel",
+            image: "/images/delBoat.jpg"
+          },
+          {
+            location: "Shinjuku",
+            description: "Checked into the hotel and found a ramen spot.",
+            category: "Food",
+            image: "/images/delBoat.jpg"
+          }
+        ]
+      },
+      {
+        day: 3,
+        name: "Arrival & Exploration",
+        date: "Oct 12, 2023",
+        // NEW: Use 'activities' array for multiple items
+        activities: [
+          {
+            location: "Narita Airport",
+            description: "Landed and picked up JR Pass.",
+            category: "Travel",
+            image: "/images/delBoat.jpg"
+          },
+          {
+            location: "Shinjuku",
+            description: "Checked into the hotel and found a ramen spot.",
+            category: "Food",
+            image: "/images/delBoat.jpg"
+          }
+        ]
+      },
+      // ... other days
     ],
     india24: [
         {

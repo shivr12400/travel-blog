@@ -1,49 +1,126 @@
 .planeAnimation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #3C493F;
-    z-index: 9999;
-    overflow: hidden;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Fallback color if image doesn't load */
+  background-color: #3C493F; 
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* Ensure this container is a positioning context for the pseudo-element */
+  position: fixed; 
+}
+
+/* This pseudo-element creates the background image layer.
+   We change the opacity HERE so it doesn't fade the text.
+*/
+.planeAnimation::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   
-  .plane {
-    position: absolute;
-    font-size: 40px;
-    animation: fly 3s linear forwards;
-    color: white;
-  }
+  /* High-quality Airport Terminal Image */
+  background-image: url('https://images.unsplash.com/photo-1542296332-2e44a996aaad?q=80&w=2070&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   
-  .trail {
-    position: absolute;
-    height: 2px;
-    background-color: transparent;
-    animation: trail 3s linear forwards;
-    
-  }
+  /* Low opacity to blend with the dark background color */
+  opacity: 0.25; 
   
-  @keyframes fly {
-    0% {
-      left: -150px;
-      top: 50%;
-    }
-    100% {
-      left: 100%;
-      top: 50%;
-    }
-  }
+  /* Place it behind the text/plane */
+  z-index: -1; 
+}
+
+/* ... Keep all your other existing classes (.contentContainer, .planeContainer, etc.) below ... */
+
+.contentContainer {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  /* Intro animation for the text */
+  animation: fadeUp 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+.planeContainer {
+  position: absolute;
+  top: 50%;
+  left: -10%; /* Start off-screen */
+  width: 100px;
+  height: 60px;
+  /* Use ease-in-out for a more realistic acceleration/deceleration feel */
+  animation: flyAcross 3s cubic-bezier(0.45, 0, 0.55, 1) forwards;
+  will-change: transform;
+}
+
+/* ... keep other styles the same ... */
+
+.planeIcon {
+  width: 100%;
+  height: 100%;
+  fill: white;
+  filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.3));
   
-  @keyframes trail {
-    0% {
-      width: 0;
-      left: -50px;
-      top: calc(50% + 20px);
-    }
-    100% {
-      width: calc(100% + 100px);
-      left: -50px;
-      top: calc(20% + 20px);
-    }
+  /* FIX: Set to 0deg for side-view plane. 
+     Adjust to -10deg if you want it pointing slightly up */
+  transform: rotate(0deg); 
+}
+
+/* Optional: Adjust the trail position if the new plane is thinner */
+.trail {
+  position: absolute;
+  top: 55%; /* Moved down slightly to align with engines */
+  right: 80px; /* Adjust based on plane width */
+  height: 3px; /* Slightly thinner */
+  width: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.6), transparent);
+  border-radius: 4px;
+  animation: growTrail 3s cubic-bezier(0.45, 0, 0.55, 1) forwards;
+}
+
+@keyframes flyAcross {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.8);
   }
+  50% {
+    /* Slight dip or rise for realism */
+    transform: translate3d(50vw, -20px, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(120vw, 0, 0) scale(1.1);
+  }
+}
+
+@keyframes growTrail {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    width: 300px; /* Length of the trail */
+    opacity: 0;
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

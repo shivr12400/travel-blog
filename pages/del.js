@@ -17,14 +17,14 @@ const Del = () => {
     const tripData = useMemo(() => data.delaware, []);
 
     const categories = useMemo(() =>
-        [...new Set(tripData.map(day => day.category))],
+        [...new Set(tripData.flatMap(day => day.activities || []).map(a => a.category).filter(Boolean))],
         [tripData]
     );
 
     const filteredTripData = useMemo(() =>
         selectedCategories.length === 0
             ? tripData
-            : tripData.filter(day => selectedCategories.includes(day.category)),
+            : tripData.filter(day => day.activities?.some(act => selectedCategories.includes(act.category))),
         [tripData, selectedCategories]
     );
 
@@ -59,7 +59,9 @@ const Del = () => {
                 selectedCategories={selectedCategories}
                 onCategoryToggle={handleCategoryToggle}
             />
-            <TripTimeline tripData={filteredTripData} />
+            <TripTimeline 
+            tripData={filteredTripData}
+            selectedCategories={selectedCategories} />
             <Footer />
         </Layout>
     );
