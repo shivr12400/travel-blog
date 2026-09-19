@@ -1,111 +1,161 @@
-import { useState, useMemo } from 'react';
-import {
-  Container,
-  Grid,
-  Card,
-  CardContent,
-  CardActions,
-  CardMedia,
-  Button,
-  Typography
-} from '@mui/material';
-import { styled } from '@mui/system';
+import React, { useMemo, useState } from 'react';
+import { Box, Container, Typography, InputBase } from '@mui/material';
+import { motion, useReducedMotion } from 'framer-motion';
 import Link from 'next/link';
 import Layout from '../components/Layout';
 import Footer from '../components/Footer';
-import SearchBar from '../components/SearchBar';
+import { trips } from '../trips';
+import { data } from '../tripData';
+import { toPhotos } from '../tripUtils';
 
-const StyledCard = styled(Card)(({ theme }) => ({
-  height: '100%',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-between',
-  margin: theme.spacing(2),
-}));
+const photoCount = (key) => toPhotos(data[key] || []).length;
 
-const CardButton = styled(Button)(({ theme }) => ({
-  backgroundColor: '#F0F7F4',
-  color: '#F0F7F4',
-  '&:hover': {
-    backgroundColor: '#F0F7F4',
-    opacity: 0.9,
-  },
-}));
+const TripRow = ({ trip, index, reduceMotion }) => (
+  <Box
+    component={motion.div}
+    initial={reduceMotion ? false : { opacity: 0, y: 28 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: '-80px' }}
+    transition={{ duration: 0.6, delay: Math.min(index, 4) * 0.06, ease: [0.22, 1, 0.36, 1] }}
+  >
+    <Box
+      component={Link}
+      href={trip.href}
+      sx={{
+        display: 'grid',
+        gridTemplateColumns: { xs: '1fr', md: '1.1fr 1fr' },
+        gap: { xs: 2.5, md: 6 },
+        alignItems: 'center',
+        py: { xs: 4, md: 6 },
+        borderTop: '1px solid var(--ink-line)',
+        '&:hover .trip-cover img': { transform: 'scale(1.06)' },
+        '&:hover .trip-title': { color: 'var(--coral)' },
+      }}
+    >
+      <Box
+        className="trip-cover"
+        sx={{
+          order: { xs: 1, md: index % 2 ? 2 : 1 },
+          overflow: 'hidden',
+          borderRadius: '3px',
+          aspectRatio: '16 / 10',
+          bgcolor: 'var(--ink-raised)',
+        }}
+      >
+        <Box
+          component="img"
+          src={trip.cover}
+          alt={`${trip.title}, ${trip.dates}`}
+          loading="lazy"
+          sx={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            display: 'block',
+            transition: 'transform 0.8s cubic-bezier(0.22, 1, 0.36, 1)',
+          }}
+        />
+      </Box>
 
-const Home = () => {
-  const [searchText, setSearchText] = useState('');
+      <Box sx={{ order: { xs: 2, md: index % 2 ? 1 : 2 } }}>
+        <Typography sx={{ color: 'var(--coral)', fontWeight: 600, fontSize: '0.9375rem', mb: 1 }}>
+          {trip.dates}
+        </Typography>
+        <Typography
+          variant="h2"
+          className="trip-title"
+          sx={{ transition: 'color 0.3s ease', mb: 0.5 }}
+        >
+          {trip.title}
+        </Typography>
+        <Typography sx={{ color: 'var(--haze)', fontSize: '1.0625rem', mb: 2 }}>
+          {trip.region}
+        </Typography>
+        <Typography sx={{ maxWidth: '44ch', color: 'rgba(255,255,255,0.78)', mb: 2.5 }}>
+          {trip.blurb}
+        </Typography>
+        <Typography sx={{ color: 'var(--haze)', fontSize: '0.875rem' }}>
+          {photoCount(trip.dataKey)} photographs, {trip.travelers.filter(Boolean).length} of us
+        </Typography>
+      </Box>
+    </Box>
+  </Box>
+);
 
-  const [cards] = useState([
-    { id: 1, title: 'Bethany Beach, DE', dates: "August 10 - 11, 2024", description: '24 Hr trip to ride a boat', link: '/del', image: '/images/del.jpg' },
-    { id: 2, title: 'India', dates: "July 3 - 17, 2024", description: "Lalji Maharaj's wedding", link: '/india24', image: '/images/india24.jpg' },
-    { id: 3, title: 'Ireland & Scotland', dates: "June 13 - 20, 2024", description: '6am mornings with the boys', link: '/irelandScotland', image: '/images/galeway.jpg' },
-    { id: 4, title: 'Nashville, TN', dates: "May 25 - 28, 2024", description: 'Madness on Broadway', link: '/nashville', image: '/images/nash.jpg'},
-    { id: 5, title: 'Finland & Estonia', dates: "April 25 - 29, 2024", description: 'First solo weekend trip', link: '/finlandEstonia', image: '/images/estonia.jpg' },
-    { id: 6, title: 'Singapore & Bali', dates: "January 31 - February 10, 2024", description: 'First time family goes to Southeast Asia', link: '/singaporeBali', image: '/images/bali.jpg' },
-    { id: 7, title: 'Southern Italy & Greece', dates: "September 3 - 17, 2024", description: 'Crusing on the mediterranian', link: '/italyGreece', image: '/images/italy.jpg' },
-    { id: 8, title: 'Thailand', dates: "January 21 - February 10, 2024", description: '18 day solo trip with a bunch of brits', link: '/thailand', image: '/images/thailand.jpg' },
-    { id: 9, title: 'Southwest USA Roadtrip', dates: "August 10 - 11, 2024", description: 'Description for Card 9', link: '/italyGreece', image: '/images/italy.jpg' },
-    { id: 10, title: 'Seattle & Alaska', dates: "August 13 - 21, 2022", description: 'Whale spotting', link: '/alaska', image: '/images/alaska.jpg' },
-  ]);
+const PastTrips = () => {
+  const [query, setQuery] = useState('');
+  const reduceMotion = useReducedMotion();
 
-  const filteredTripData = useMemo(() => {
-    if (!searchText) return cards;
-    return cards.filter((trip) =>
-      trip.title.toLowerCase().includes(searchText.toLowerCase())
+  const results = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return trips;
+    return trips.filter((t) =>
+      [t.title, t.region, t.blurb, t.dates].join(' ').toLowerCase().includes(q)
     );
-  }, [cards, searchText]);
-
-  const handleSearch = (text) => {
-    setSearchText(text);
-  };
-
-  const Title = styled(Typography)(({ theme }) => ({
-    marginBottom: "40px"
-  }));
+  }, [query]);
 
   return (
     <Layout>
-      <Container maxWidth="lg" sx={{ py: 6 }}>
-        <Title variant="h3" marginTop={"4"}>
-          Past Trips
-        </Title>
-        <SearchBar onSearch={handleSearch} />
-        <Grid container spacing={6} justifyContent="center">
-          {filteredTripData.map((card) => (
-            <Grid item key={card.id} xs={12} sm={6} md={4}>
-              <StyledCard elevation={3}>
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image={card.image}
-                  alt={card.title}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {card.title}
-                  </Typography>
-                  <Typography gutterBottom variant="subtitle1" component="div">
-                    {card.dates}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {card.description}
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Link href={card.link} passHref>
-                    <CardButton size="small" color="primary">
-                      Go to Page
-                    </CardButton>
-                  </Link>
-                </CardActions>
-              </StyledCard>
-            </Grid>
-          ))}
-        </Grid>
+      <Container maxWidth="lg" sx={{ pt: { xs: 16, md: 22 }, pb: { xs: 8, md: 12 } }}>
+        <Box
+          sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: 3,
+            alignItems: 'flex-end',
+            justifyContent: 'space-between',
+            mb: { xs: 5, md: 8 },
+          }}
+        >
+          <Box>
+            <Typography variant="h1" sx={{ mb: 2 }}>
+              Every trip
+            </Typography>
+            <Typography sx={{ color: 'var(--haze)', maxWidth: '44ch', fontSize: '1.125rem' }}>
+              Open one and the photographs are all that's there. Click any of them to read what
+              happened that day.
+            </Typography>
+          </Box>
+
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              borderBottom: '1px solid var(--ink-line)',
+              pb: 1,
+              minWidth: { xs: '100%', sm: 280 },
+              transition: 'border-color 0.25s ease',
+              '&:focus-within': { borderColor: 'var(--coral)' },
+            }}
+          >
+            <InputBase
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search trips"
+              inputProps={{ 'aria-label': 'Search trips' }}
+              sx={{ width: '100%', color: 'var(--paper)', fontSize: '1rem' }}
+            />
+          </Box>
+        </Box>
+
+        {results.map((trip, index) => (
+          <TripRow key={trip.id} trip={trip} index={index} reduceMotion={reduceMotion} />
+        ))}
+
+        {results.length === 0 && (
+          <Box sx={{ py: 10, borderTop: '1px solid var(--ink-line)' }}>
+            <Typography variant="h4" sx={{ mb: 1 }}>
+              Nothing matches “{query}”
+            </Typography>
+            <Typography sx={{ color: 'var(--haze)' }}>
+              Try a place, a year, or clear the search to see all {trips.length} trips.
+            </Typography>
+          </Box>
+        )}
       </Container>
       <Footer />
     </Layout>
   );
 };
 
-export default Home;
+export default PastTrips;

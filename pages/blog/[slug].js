@@ -1,6 +1,7 @@
-import Layout from '../../components/Layout';
-import { Typography } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
+import Layout from '../../components/Layout';
+import Footer from '../../components/Footer';
 
 const BlogPost = () => {
   const router = useRouter();
@@ -8,12 +9,17 @@ const BlogPost = () => {
 
   return (
     <Layout>
-      <Typography variant="h4" component="h1" gutterBottom>
-        {slug}
-      </Typography>
-      <Typography variant="body1">
-        This is a placeholder for the blog post content. In a real application, you would fetch the content based on the slug.
-      </Typography>
+      <Container maxWidth="md" sx={{ pt: { xs: 16, md: 22 }, pb: { xs: 8, md: 12 } }}>
+        <Typography variant="h2" component="h1" sx={{ mb: 2 }}>
+          {slug}
+        </Typography>
+        <Box sx={{ maxWidth: '62ch' }}>
+          <Typography sx={{ color: 'var(--haze)' }}>
+            This post hasn't been written yet.
+          </Typography>
+        </Box>
+      </Container>
+      <Footer />
     </Layout>
   );
 };

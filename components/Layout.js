@@ -1,15 +1,11 @@
-import { Container } from '@mui/material';
+import { Box } from '@mui/material';
 import Navbar from './Navbar';
 
-const Layout = ({ children }) => {
-  return (
-    <>
-      <Navbar />
-      <Container maxWidth="lg">
-        <main>{children}</main>
-      </Container>
-    </>
-  );
-};
+const Layout = ({ children }) => (
+  <Box sx={{ bgcolor: 'var(--ink)', minHeight: '100vh' }}>
+    <Navbar />
+    <main>{children}</main>
+  </Box>
+);
 
 export default Layout;

@@ -1,68 +1,125 @@
 import React from 'react';
-import { 
-  Box, 
-  Container, 
-  Typography, 
-  Grid, 
-  Paper,
-  Avatar
-} from '@mui/material';
-import { styled } from '@mui/system';
-import Navbar from '../components/Navbar';
+import { Box, Container, Typography } from '@mui/material';
+import { motion, useReducedMotion } from 'framer-motion';
+import Link from 'next/link';
+import Layout from '../components/Layout';
 import Footer from '../components/Footer';
-
-const StyledPaper = styled(Paper)(({ theme }) => ({
-  padding: theme.spacing(4),
-  margin: theme.spacing(4, 0),
-  backgroundColor: '#F0F7F4',
-  boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .1)',
-}));
-
-const LargeAvatar = styled(Avatar)(({ theme }) => ({
-  width: theme.spacing(30),
-  height: theme.spacing(30),
-  margin: '0 auto',
-  boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .2)',
-}));
+import { trips } from '../trips';
 
 const About = () => {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        minHeight: '100vh',
-      }}
-    >
-      <Navbar />
-      <Container maxWidth="lg" sx={{ flex: '1 0 auto', py: 4 }}>
-        <StyledPaper elevation={3}>
-          <Grid container spacing={4} alignItems="center">
-            <Grid item xs={12} md={5}>
-              <LargeAvatar alt="Your Name" src="/images/elephant.jpg" />
-            </Grid>
-            <Grid item xs={12} md={7}>
-              <Typography variant="h4" component="h1" gutterBottom>
-                Shiv Rathod
+    <Layout>
+      <Container maxWidth="lg" sx={{ pt: { xs: 16, md: 22 }, pb: { xs: 8, md: 12 } }}>
+        <Box sx={{ overflow: 'hidden', pb: '0.08em' }}>
+          <Typography
+            component={motion.h1}
+            variant="h1"
+            initial={reduceMotion ? false : { y: '110%' }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1] }}
+            sx={{ m: 0 }}
+          >
+            Shiv Rathod
+          </Typography>
+        </Box>
+        <Typography sx={{ mt: 2, color: 'var(--coral)', fontWeight: 600, fontSize: '1.125rem' }}>
+          Software engineer by day, world explorer by PTO
+        </Typography>
+
+        <Box
+          sx={{
+            mt: { xs: 6, md: 10 },
+            display: 'grid',
+            gridTemplateColumns: { xs: '1fr', md: '0.9fr 1.1fr' },
+            gap: { xs: 5, md: 8 },
+            alignItems: 'start',
+          }}
+        >
+          <Box
+            component={motion.div}
+            initial={reduceMotion ? false : { opacity: 0, y: 30, rotate: -2.5 }}
+            whileInView={{ opacity: 1, y: 0, rotate: -1.5 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            sx={{
+              overflow: 'hidden',
+              borderRadius: '3px',
+              aspectRatio: '4 / 5',
+              boxShadow: 'var(--shadow-card)',
+              bgcolor: 'var(--ink-raised)',
+            }}
+          >
+            <Box
+              component="img"
+              src="/images/elephant.jpg"
+              alt="Shiv Rathod"
+              sx={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            />
+          </Box>
+
+          <Box>
+            <Typography
+              variant="h3"
+              component="p"
+              sx={{ mb: 4, maxWidth: '20ch', lineHeight: 1.1 }}
+            >
+              “I want to show my future generations I was a cool guy.”
+            </Typography>
+
+            <Box sx={{ maxWidth: '62ch', '& p': { mb: 3, color: 'rgba(255,255,255,0.78)', fontSize: '1.0625rem', lineHeight: 1.7 } }}>
+              <Typography component="p">
+                I'm a 23-year-old software engineer who spends every hour of PTO on a plane. This
+                site is where I keep the places I've been so I don't lose them.
               </Typography>
-              <Typography variant="body1" paragraph>
-                Hello! I am a 23 year old Software Engineer that uses up all his PTO on travel. This website serves to help me document all the places I've been to and to show my future generations I was a cool guy!
+              <Typography component="p">
+                So far that's two solo trips, a lot of chaos with different friend groups, and the
+                wholesome family ones in between.
               </Typography>
-              <Typography variant="body1" paragraph>
-                My journey consists on 2 solo trips, trips with different groups of friends, and tons of trips with my family.
+              <Typography component="p">
+                Travel pulls you out of your bedroom and into other people's customs, food and
+                mornings. If any of this makes you book something, it did its job.
               </Typography>
-              <Typography variant="body1" paragraph>
-                Travel has a way of exposing you to the world outside your bedroom. Allowing you meet new people, explore new customs, and discover who you really are. Through this blog I hope to inspire my future generations to get out there and explore the world. Fill all the gaps I couldn't in my lifetime and keep my legacy going on for generations.
-              </Typography>
-              <Typography variant="body1">
-                Join me as we explore the world together, one destination at a time!
-              </Typography>
-            </Grid>
-          </Grid>
-        </StyledPaper>
+            </Box>
+
+            <Box sx={{ mt: 5, display: 'flex', gap: 3, flexWrap: 'wrap', alignItems: 'center' }}>
+              <Box
+                component={Link}
+                href="/pasttrips"
+                sx={{
+                  px: 3.5,
+                  py: 1.5,
+                  borderRadius: 999,
+                  bgcolor: 'var(--coral)',
+                  color: 'var(--ink-deep)',
+                  fontWeight: 700,
+                  transition: 'transform 0.25s ease, background-color 0.25s ease',
+                  '&:hover': { transform: 'translateY(-2px)', bgcolor: 'var(--coral-lift)' },
+                }}
+              >
+                All {trips.length} trips
+              </Box>
+              <Box
+                component="a"
+                href="mailto:shivr12400@gmail.com"
+                sx={{
+                  fontWeight: 600,
+                  color: 'var(--haze)',
+                  borderBottom: '2px solid transparent',
+                  pb: '2px',
+                  transition: 'color 0.25s ease, border-color 0.25s ease',
+                  '&:hover': { color: 'var(--paper)', borderColor: 'var(--coral)' },
+                }}
+              >
+                Say hello
+              </Box>
+            </Box>
+          </Box>
+        </Box>
       </Container>
       <Footer />
-    </Box>
+    </Layout>
   );
 };
 

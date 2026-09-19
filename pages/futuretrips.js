@@ -1,106 +1,110 @@
 import React from 'react';
-import { 
-  Container, 
-  Typography, 
-  Accordion, 
-  AccordionSummary, 
-  AccordionDetails,
-  Box,
-  Grid,
-  Card,
-  CardMedia
-} from '@mui/material';
-import Navbar from '../components/Navbar';
+import { Box, Container, Typography } from '@mui/material';
+import { motion, useReducedMotion } from 'framer-motion';
+import Layout from '../components/Layout';
 import Footer from '../components/Footer';
 
 const seasons = [
   {
-    name: 'Spring',
+    name: 'Spring 2026',
     trips: [
-      { destination: 'Tokyo, Japan', description: 'Cherry blossom viewing and cultural exploration' },
-      { destination: 'Amsterdam, Netherlands', description: 'Tulip festival and canal tours' },
+      { destination: 'Tokyo, Japan', note: 'Cherry blossoms, and as many neighbourhoods as the JR pass allows.' },
+      { destination: 'Amsterdam, Netherlands', note: 'Tulip season, seen from a canal boat.' },
     ],
-    image: 'https://source.unsplash.com/800x600/?spring'
   },
   {
-    name: 'Summer',
+    name: 'Summer 2026',
     trips: [
-      { destination: 'Santorini, Greece', description: 'Beach relaxation and stunning sunsets' },
-      { destination: 'Banff National Park, Canada', description: 'Hiking and wildlife watching' },
+      { destination: 'Santorini, Greece', note: 'Beach, then a sunset I have been warned about.' },
+      { destination: 'Banff, Canada', note: 'Hiking, and hopefully something with antlers.' },
     ],
-    image: 'https://source.unsplash.com/800x600/?summer'
   },
   {
-    name: 'Fall',
+    name: 'Fall 2026',
     trips: [
-      { destination: 'New England, USA', description: 'Fall foliage road trip' },
-      { destination: 'Tuscany, Italy', description: 'Wine tasting and countryside exploration' },
+      { destination: 'New England, USA', note: 'A road trip timed entirely around the leaves.' },
+      { destination: 'Tuscany, Italy', note: 'Wine, countryside, no itinerary.' },
     ],
-    image: 'https://source.unsplash.com/800x600/?autumn'
   },
   {
-    name: 'Winter',
+    name: 'Winter 2027',
     trips: [
-      { destination: 'Lapland, Finland', description: 'Northern Lights viewing and husky sledding' },
-      { destination: 'Queenstown, New Zealand', description: 'Skiing and adventure sports' },
+      { destination: 'Lapland, Finland', note: 'Northern lights and a husky sled.' },
+      { destination: 'Queenstown, New Zealand', note: 'Skiing, and whatever they talk me into.' },
     ],
-    image: 'https://source.unsplash.com/800x600/?winter'
   },
 ];
 
 const FutureTrips = () => {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        minHeight: '100vh',
-      }}
-    >
-      <Navbar />
-      <Container maxWidth="md" sx={{ py: 6, flex: '1 0 auto' }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Future Trips
+    <Layout>
+      <Container maxWidth="lg" sx={{ pt: { xs: 16, md: 22 }, pb: { xs: 8, md: 12 } }}>
+        <Box sx={{ overflow: 'hidden', pb: '0.08em' }}>
+          <Typography
+            component={motion.h1}
+            variant="h1"
+            initial={reduceMotion ? false : { y: '110%' }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1] }}
+            sx={{ m: 0 }}
+          >
+            Not booked yet
+          </Typography>
+        </Box>
+        <Typography sx={{ mt: 3, color: 'var(--haze)', maxWidth: '48ch', fontSize: '1.125rem' }}>
+          Eight places I keep opening flight tabs for. Nothing here has photographs on it — that's
+          the whole point.
         </Typography>
-        {seasons.map((season) => (
-          <Accordion key={season.name}>
-            <AccordionSummary
-              aria-controls={`${season.name}-content`}
-              id={`${season.name}-header`}
+
+        <Box sx={{ mt: { xs: 7, md: 10 } }}>
+          {seasons.map((season, index) => (
+            <Box
+              key={season.name}
+              component={motion.section}
+              initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.55, delay: Math.min(index, 3) * 0.07, ease: [0.22, 1, 0.36, 1] }}
+              sx={{
+                display: 'grid',
+                gridTemplateColumns: { xs: '1fr', md: '0.5fr 1fr' },
+                gap: { xs: 2, md: 6 },
+                py: { xs: 4, md: 5 },
+                borderTop: '1px solid var(--ink-line)',
+              }}
             >
-              <Typography variant="h6">{season.name}</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Grid container spacing={3}>
-                <Grid item xs={12} md={8}>
-                  {season.trips.map((trip, index) => (
-                    <Box key={index} mb={2}>
-                      <Typography variant="subtitle1" fontWeight="bold">
-                        {trip.destination}
-                      </Typography>
-                      <Typography variant="body2">
-                        {trip.description}
-                      </Typography>
-                    </Box>
-                  ))}
-                </Grid>
-                <Grid item xs={12} md={4}>
-                  <Card>
-                    <CardMedia
-                      component="img"
-                      height="200"
-                      image={season.image}
-                      alt={`${season.name} travel`}
-                    />
-                  </Card>
-                </Grid>
-              </Grid>
-            </AccordionDetails>
-          </Accordion>
-        ))}
+              <Typography variant="h3" component="h2" sx={{ color: 'var(--coral)' }}>
+                {season.name}
+              </Typography>
+
+              <Box>
+                {season.trips.map((trip) => (
+                  <Box
+                    key={trip.destination}
+                    sx={{
+                      mb: 3,
+                      '&:last-child': { mb: 0 },
+                      pl: 3,
+                      borderLeft: '2px solid var(--ink-line)',
+                      transition: 'border-color 0.3s ease, padding-left 0.3s ease',
+                      '&:hover': { borderColor: 'var(--coral)', pl: 3.5 },
+                    }}
+                  >
+                    <Typography variant="h5" component="h3" sx={{ mb: 0.5 }}>
+                      {trip.destination}
+                    </Typography>
+                    <Typography sx={{ color: 'var(--haze)', maxWidth: '52ch' }}>{trip.note}</Typography>
+                  </Box>
+                ))}
+              </Box>
+            </Box>
+          ))}
+        </Box>
       </Container>
       <Footer />
-    </Box>
+    </Layout>
   );
 };
 

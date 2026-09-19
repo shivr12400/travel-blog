@@ -2,30 +2,21 @@
 
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import Head from 'next/head';
 import theme from '../styles/theme';
-import { useState, useEffect } from 'react';
-import PlaneAnimation from '../components/PlaneAnimation';
-
+import Intro from '../components/Intro';
+import '../styles/global.css';
 
 function MyApp({ Component, pageProps }) {
-  const [showAnimation, setShowAnimation] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowAnimation(false);
-    }, 3000); // Match this to the animation duration
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <>
-      {showAnimation && <PlaneAnimation />}
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+      </Head>
       <CssBaseline />
+      <Intro />
       <Component {...pageProps} />
     </ThemeProvider>
-    </>
   );
 }
 

@@ -2,11 +2,11 @@ import TripPage from '../components/TripPage';
 import { data } from '../tripData';
 import { tripById } from '../trips';
 
-const trip = tripById('india24');
+const trip = tripById('india25');
 
-const India24 = () => (
+const India25 = () => (
   <TripPage
-    tripData={data.india24}
+    tripData={data.india25}
     coverImage={trip.cover}
     title={trip.title}
     dates={trip.dates}
@@ -15,4 +15,4 @@ const India24 = () => (
   />
 );
 
-export default India24;
+export default India25;

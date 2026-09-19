@@ -1,4 +1,95 @@
 export const data = {
+  india25: [
+    {
+      day: 1,
+      name: "Last minute booking, PI Planning & Airport",
+      date: "Jan 22, 2026",
+      // NEW: Use 'activities' array for multiple items
+      activities: [
+        {
+          location: "JFK Airport",
+          description: "Original flight the next day got delayed 4 hrs. Booked a new one on Etihad. Brought luggage to the office for PI planning. Chilled out at the AMEX Lounge with AJ",
+          coordinates: [39.6929, -75.0744],
+          category: "Travel",
+          image: "https://travel-website-pictures.s3.us-east-1.amazonaws.com/zurich_plane.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIA45QACPMUQ4SH6EZ4%2F20260210%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260210T011739Z&X-Amz-Expires=300&X-Amz-Security-Token=IQoJb3JpZ2luX2VjENL%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIHVT88OVVJrrQZ4DVCzxR7n79FUDCNCGrhY%2BDh9lHrVUAiEAwwT%2FljQIeB479FG9cmGe%2BwGnzGIU5d4oPYvcrPni%2FHUq3wIImv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw4ODc5ODQ2NTEwNDkiDJuOx9vH9dIayEffIyqzAvaF15FrrDSvLAAGe1qIviJsv1AQWXM%2FIFtxqeQr6kQdPjAMSoTxcENWIrr5C7tX8YgJZLnBedHxTzv34UitqoM%2FPzGgx3vEieMSihDF7HwXsfV%2BHwqlnrKCpa1DtV0PuglcQBFNMEJMVdMHZwQG6bVUT4lvPlgfAVyXBk7xiYXeFQtXZwSvGNff9nex8Q1f%2F%2Bq7EHcnuyq9%2F%2By9627fq%2FY8TXSnPKtx789S4Dfkj9mAJewUquNSoKa%2Fgia1NoOiFnY2c0QlCYvElVA6kqxOxi53EEeZPHFY4ZM9nR5nWodeY96%2FfoyjuUJgOWXPUVvccZtO46H6EZysj9g0%2Bld89BA59DKyXZlI9gVJ3fvEBdZaOpNHWjEp1hVZmS7GV9zzJfWoep4yLJU1XZNqt8h8odVbstQwkYyqzAY6rQK0Vri9DuUTJhr%2FHHjNcFCnhwj4TG9PtIcgHYMaJnw5n77%2F3qkp0d%2FFHFeyEksJD8PGEhypIZoZklkPiGk7auCBnZzprEFKZE3E8YdnBkzT6J9kRJ7DyEO36sx3NPgf8CXb9vzO4xtkQCEeE8VNGz3zQlMtbT6%2BbxEoNWfozFdWq6ua%2Fg9IHjPBFmqU2wJdaDSgxX%2FwLz1PgF%2FpJ9ZrgakS9E%2FrRUDzci7ooZj8dbBvExpWrDjLYD8VrfYHU1RuYbdUSsIALigrOcrhWHqUgCnPwA7tUYm%2BRPuvMbmMA5MVE63UX37ZyH4r%2Ff8TL48TUvPsZ6o5EKjvbNRGTRzfATgoiSuEpTJHKxt1ECCdA42h9C%2BqCcbLnbLXV46uorfm9M%2BYEAcS2ANN2ktVypuI&X-Amz-Signature=e00abf24e360de4cdd3dd79f6e43c418b9b3b695ebbffdff9d937a6b00b73a1f&X-Amz-SignedHeaders=host&response-content-disposition=inline"
+        },
+        {
+          location: "Shinjuku",
+          description: "Checked into the hotel and found a ramen spot.",
+          coordinates: [38.6929, -75.0744],
+          category: "Food",
+          image: "/images/delBoat.jpg"
+        }
+      ]
+    },
+    {
+      day: 2,
+      name: "Abu Dhabi Stopover, Muli, & Samaiyo",
+      date: "Jan 23, 2026",
+      // NEW: Use 'activities' array for multiple items
+      activities: [
+        {
+          location: "Abu Dhabi",
+          description: "Etihad was able to connect my itinerary with Air Arabia so did not need to go get my bags. Relaxed at the huge Pearl Lounge. Food was mid but got WiFi and snacks. Had 5 hours to burn before the next flight. They put Air Arabia with all the budget airlines. Etihad airliens had a much better gate setup than Air Arabia",
+          coordinates: [39.6929, -75.0744],
+          category: "Travel",
+          image: "https://travel-website-pictures.s3.us-east-1.amazonaws.com/zurich_plane.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIA45QACPMUQ4SH6EZ4%2F20260210%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260210T011739Z&X-Amz-Expires=300&X-Amz-Security-Token=IQoJb3JpZ2luX2VjENL%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIHVT88OVVJrrQZ4DVCzxR7n79FUDCNCGrhY%2BDh9lHrVUAiEAwwT%2FljQIeB479FG9cmGe%2BwGnzGIU5d4oPYvcrPni%2FHUq3wIImv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw4ODc5ODQ2NTEwNDkiDJuOx9vH9dIayEffIyqzAvaF15FrrDSvLAAGe1qIviJsv1AQWXM%2FIFtxqeQr6kQdPjAMSoTxcENWIrr5C7tX8YgJZLnBedHxTzv34UitqoM%2FPzGgx3vEieMSihDF7HwXsfV%2BHwqlnrKCpa1DtV0PuglcQBFNMEJMVdMHZwQG6bVUT4lvPlgfAVyXBk7xiYXeFQtXZwSvGNff9nex8Q1f%2F%2Bq7EHcnuyq9%2F%2By9627fq%2FY8TXSnPKtx789S4Dfkj9mAJewUquNSoKa%2Fgia1NoOiFnY2c0QlCYvElVA6kqxOxi53EEeZPHFY4ZM9nR5nWodeY96%2FfoyjuUJgOWXPUVvccZtO46H6EZysj9g0%2Bld89BA59DKyXZlI9gVJ3fvEBdZaOpNHWjEp1hVZmS7GV9zzJfWoep4yLJU1XZNqt8h8odVbstQwkYyqzAY6rQK0Vri9DuUTJhr%2FHHjNcFCnhwj4TG9PtIcgHYMaJnw5n77%2F3qkp0d%2FFHFeyEksJD8PGEhypIZoZklkPiGk7auCBnZzprEFKZE3E8YdnBkzT6J9kRJ7DyEO36sx3NPgf8CXb9vzO4xtkQCEeE8VNGz3zQlMtbT6%2BbxEoNWfozFdWq6ua%2Fg9IHjPBFmqU2wJdaDSgxX%2FwLz1PgF%2FpJ9ZrgakS9E%2FrRUDzci7ooZj8dbBvExpWrDjLYD8VrfYHU1RuYbdUSsIALigrOcrhWHqUgCnPwA7tUYm%2BRPuvMbmMA5MVE63UX37ZyH4r%2Ff8TL48TUvPsZ6o5EKjvbNRGTRzfATgoiSuEpTJHKxt1ECCdA42h9C%2BqCcbLnbLXV46uorfm9M%2BYEAcS2ANN2ktVypuI&X-Amz-Signature=e00abf24e360de4cdd3dd79f6e43c418b9b3b695ebbffdff9d937a6b00b73a1f&X-Amz-SignedHeaders=host&response-content-disposition=inline"
+        },
+        {
+          location: "Amdavad",
+          description: "Landed on time at 5am and thank god the bags showed up. I said fuck it and decided to go to Muli for Vasant Pachami celebrations. Saw Ba and Dada and then drove over 2 hrs to Muli. Met up with a bunch of US and UK heads and got showered with the color. The color was everywhere and so hard to get out after showering. Rushed over to the grounds where the 1st day celebrations kicked off with parade, color shot up in the air & more. Saw the light show which was multiple animated exhibits explaining the Shikshapatri and our religion. Saw Aditya Gadhavi perform in front of 50,000+ people",
+          coordinates: [38.6929, -75.0744],
+          category: "Food",
+          image: "/images/delBoat.jpg"
+        },
+        {
+          location: "Adalaj, Gujarat",
+          description: "Rushed over to the grounds where the 1st day celebrations kicked off with parade, color shot up in the air & more. Saw the light show which was multiple animated exhibits explaining the Shikshapatri and our religion. Saw Aditya Gadhavi perform in front of 50,000+ people",
+          coordinates: [38.6929, -75.0744],
+          category: "Food",
+          image: "/images/delBoat.jpg"
+        },
+      ],
+    },
+    {
+      day: 3,
+      name: "Samaiyo",
+      date: "Jan 24, 2026",
+      // NEW: Use 'activities' array for multiple items
+      activities: [
+        {
+          location: "Kalupur Mandir",
+          description: "Morning Darshan. Got to do Annkut darshan at the women's Haveli (Men usually never get the chance).",
+          coordinates: [38.6929, -75.0744],
+          category: "Food",
+          image: "/images/delBoat.jpg"
+        },
+        {
+          location: "Adalaj, Gujarat",
+          description: "Sabha during the afternoon and then evening. Today saw Garba sung by Atul Purohit, again in front of over 50,000+ people",
+          coordinates: [38.6929, -75.0744],
+          category: "Food",
+          image: "/images/delBoat.jpg"
+        },
+      ],
+    },
+    {
+      day: 4,
+      name: "Samaiyo",
+      date: "Jan 25, 2026",
+      // NEW: Use 'activities' array for multiple items
+      activities: [
+        {
+          location: "Amdavad",
+          description: "Morning Darshan at Kalupur Mandir. Morning Sabha at the grounds. Snuck out to mall with AJ, Smit & Monit and got McDonalds + Taco Bell. Saw Monits apartment which was really nice. Went back for evening Sabha. Got Dinner at Banquet and Ice Cream with Kishan, Monit and, Smit",
+          coordinates: [38.6929, -75.0744],
+          category: "Food",
+          image: "/images/delBoat.jpg"
+        }
+      ],
+    },
+    
+  ],
     delaware: [
       {
         day: 1,
@@ -11,7 +102,7 @@ export const data = {
             description: "Landed and picked up JR Pass.",
             coordinates: [39.6929, -75.0744],
             category: "Travel",
-            image: "/images/delBoat.jpg"
+            image: "https://travel-website-pictures.s3.us-east-1.amazonaws.com/zurich_plane.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIA45QACPMUQ4SH6EZ4%2F20260210%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260210T011739Z&X-Amz-Expires=300&X-Amz-Security-Token=IQoJb3JpZ2luX2VjENL%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIHVT88OVVJrrQZ4DVCzxR7n79FUDCNCGrhY%2BDh9lHrVUAiEAwwT%2FljQIeB479FG9cmGe%2BwGnzGIU5d4oPYvcrPni%2FHUq3wIImv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw4ODc5ODQ2NTEwNDkiDJuOx9vH9dIayEffIyqzAvaF15FrrDSvLAAGe1qIviJsv1AQWXM%2FIFtxqeQr6kQdPjAMSoTxcENWIrr5C7tX8YgJZLnBedHxTzv34UitqoM%2FPzGgx3vEieMSihDF7HwXsfV%2BHwqlnrKCpa1DtV0PuglcQBFNMEJMVdMHZwQG6bVUT4lvPlgfAVyXBk7xiYXeFQtXZwSvGNff9nex8Q1f%2F%2Bq7EHcnuyq9%2F%2By9627fq%2FY8TXSnPKtx789S4Dfkj9mAJewUquNSoKa%2Fgia1NoOiFnY2c0QlCYvElVA6kqxOxi53EEeZPHFY4ZM9nR5nWodeY96%2FfoyjuUJgOWXPUVvccZtO46H6EZysj9g0%2Bld89BA59DKyXZlI9gVJ3fvEBdZaOpNHWjEp1hVZmS7GV9zzJfWoep4yLJU1XZNqt8h8odVbstQwkYyqzAY6rQK0Vri9DuUTJhr%2FHHjNcFCnhwj4TG9PtIcgHYMaJnw5n77%2F3qkp0d%2FFHFeyEksJD8PGEhypIZoZklkPiGk7auCBnZzprEFKZE3E8YdnBkzT6J9kRJ7DyEO36sx3NPgf8CXb9vzO4xtkQCEeE8VNGz3zQlMtbT6%2BbxEoNWfozFdWq6ua%2Fg9IHjPBFmqU2wJdaDSgxX%2FwLz1PgF%2FpJ9ZrgakS9E%2FrRUDzci7ooZj8dbBvExpWrDjLYD8VrfYHU1RuYbdUSsIALigrOcrhWHqUgCnPwA7tUYm%2BRPuvMbmMA5MVE63UX37ZyH4r%2Ff8TL48TUvPsZ6o5EKjvbNRGTRzfATgoiSuEpTJHKxt1ECCdA42h9C%2BqCcbLnbLXV46uorfm9M%2BYEAcS2ANN2ktVypuI&X-Amz-Signature=e00abf24e360de4cdd3dd79f6e43c418b9b3b695ebbffdff9d937a6b00b73a1f&X-Amz-SignedHeaders=host&response-content-disposition=inline"
           },
           {
             location: "Shinjuku",
