@@ -1,18 +1,18 @@
-// theme.js — tokens for "the back of the photograph": navy ground, white paper, coral accent
+// theme.js — tokens for "the back of the photograph": plum ground, mint paper, blue accent
 
 import { createTheme } from '@mui/material/styles';
 
 export const palette = {
-  ink: '#102542',
-  inkDeep: '#0A1A2F',
-  inkRaised: '#1A3A63',
-  inkLine: 'rgba(143, 169, 198, 0.22)',
-  paper: '#FFFFFF',
-  paperShade: '#E3E8EF',
-  inkOnPaper: '#102542',
-  coral: '#F87060',
-  coralLift: '#FF8B7C',
-  haze: '#8FA9C6',
+  ink: '#361F27',
+  inkDeep: '#24141A',
+  inkRaised: '#4A2D37',
+  inkLine: 'rgba(234, 242, 239, 0.16)',
+  paper: '#EAF2EF',
+  paperShade: '#D3DFDA',
+  inkOnPaper: '#361F27',
+  accent: '#A5C4D4',
+  accentLift: '#C3D8E3',
+  haze: '#A9BCB5',
 };
 
 const display = "'Bricolage Grotesque', 'Trebuchet MS', sans-serif";
@@ -21,7 +21,7 @@ const text = "'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 
 const theme = createTheme({
   palette: {
     mode: 'dark',
-    primary: { main: palette.coral, contrastText: palette.ink },
+    primary: { main: palette.accent, contrastText: palette.ink },
     secondary: { main: palette.paper, contrastText: palette.ink },
     background: { default: palette.ink, paper: palette.inkRaised },
     text: { primary: palette.paper, secondary: palette.haze },

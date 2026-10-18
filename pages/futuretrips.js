@@ -75,7 +75,7 @@ const FutureTrips = () => {
                 borderTop: '1px solid var(--ink-line)',
               }}
             >
-              <Typography variant="h3" component="h2" sx={{ color: 'var(--coral)' }}>
+              <Typography variant="h3" component="h2" sx={{ color: 'var(--accent)' }}>
                 {season.name}
               </Typography>
 
@@ -89,7 +89,7 @@ const FutureTrips = () => {
                       pl: 3,
                       borderLeft: '2px solid var(--ink-line)',
                       transition: 'border-color 0.3s ease, padding-left 0.3s ease',
-                      '&:hover': { borderColor: 'var(--coral)', pl: 3.5 },
+                      '&:hover': { borderColor: 'var(--accent)', pl: 3.5 },
                     }}
                   >
                     <Typography variant="h5" component="h3" sx={{ mb: 0.5 }}>

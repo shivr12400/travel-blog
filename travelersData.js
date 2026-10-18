@@ -43,6 +43,14 @@ export const travelersData = {
         name: 'Mehak Hans',
         imageUrl: '/images/people/mehak.jpg',
     },
+    Dhruvit: {
+        name: 'Dhruvit Patel',
+        imageUrl: '/images/people/dhruvit.jpg',
+    },
+    Preneet: {
+        name: 'Preneet Prathi',
+        imageUrl: '/images/people/preneet.jpg',
+    },
     Akriti: {
         name: 'Akriti Tripathi',
         imageUrl: '/images/people/akriti.jpg',
@@ -54,6 +62,34 @@ export const travelersData = {
     Sankya: {
         name: 'Sankya Parvatrao',
         imageUrl: '/images/people/sankya.jpg',
+    },
+    Mom: {
+        name: 'Mom',
+        imageUrl: '/images/people/mom.jpg',
+    },
+    Dad: {
+        name: 'Dad',
+        imageUrl: '/images/people/dad.jpg',
+    },
+    Roma: {
+        name: 'Roma',
+        imageUrl: '',
+    },
+    Shreel: {
+        name: 'Shreel',
+        imageUrl: '/images/people/shreel.jpg',
+    },
+    Diya: {
+        name: 'Diya',
+        imageUrl: '/images/people/diya.jpg',
+    },
+    Shivani: {
+        name: 'Shivani',
+        imageUrl: '/images/people/shivani.jpg',
+    },
+    Malhar: {
+        name: 'Malhar',
+        imageUrl: '/images/people/malhar.jpg',
     },
     Abhi: {
         name: 'Abhi Kasangattu',

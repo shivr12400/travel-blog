@@ -29,7 +29,7 @@ const TripRow = ({ trip, index, reduceMotion }) => (
         py: { xs: 4, md: 6 },
         borderTop: '1px solid var(--ink-line)',
         '&:hover .trip-cover img': { transform: 'scale(1.06)' },
-        '&:hover .trip-title': { color: 'var(--coral)' },
+        '&:hover .trip-title': { color: 'var(--accent)' },
       }}
     >
       <Box
@@ -58,7 +58,7 @@ const TripRow = ({ trip, index, reduceMotion }) => (
       </Box>
 
       <Box sx={{ order: { xs: 2, md: index % 2 ? 1 : 2 } }}>
-        <Typography sx={{ color: 'var(--coral)', fontWeight: 600, fontSize: '0.9375rem', mb: 1 }}>
+        <Typography sx={{ color: 'var(--accent)', fontWeight: 600, fontSize: '0.9375rem', mb: 1 }}>
           {trip.dates}
         </Typography>
         <Typography
@@ -71,7 +71,7 @@ const TripRow = ({ trip, index, reduceMotion }) => (
         <Typography sx={{ color: 'var(--haze)', fontSize: '1.0625rem', mb: 2 }}>
           {trip.region}
         </Typography>
-        <Typography sx={{ maxWidth: '44ch', color: 'rgba(255,255,255,0.78)', mb: 2.5 }}>
+        <Typography sx={{ maxWidth: '44ch', color: 'rgba(234,242,239,0.78)', mb: 2.5 }}>
           {trip.blurb}
         </Typography>
         <Typography sx={{ color: 'var(--haze)', fontSize: '0.875rem' }}>
@@ -125,7 +125,7 @@ const PastTrips = () => {
               pb: 1,
               minWidth: { xs: '100%', sm: 280 },
               transition: 'border-color 0.25s ease',
-              '&:focus-within': { borderColor: 'var(--coral)' },
+              '&:focus-within': { borderColor: 'var(--accent)' },
             }}
           >
             <InputBase

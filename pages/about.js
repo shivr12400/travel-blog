@@ -24,7 +24,7 @@ const About = () => {
             Shiv Rathod
           </Typography>
         </Box>
-        <Typography sx={{ mt: 2, color: 'var(--coral)', fontWeight: 600, fontSize: '1.125rem' }}>
+        <Typography sx={{ mt: 2, color: 'var(--accent)', fontWeight: 600, fontSize: '1.125rem' }}>
           Software engineer by day, world explorer by PTO
         </Typography>
 
@@ -68,7 +68,7 @@ const About = () => {
               “I want to show my future generations I was a cool guy.”
             </Typography>
 
-            <Box sx={{ maxWidth: '62ch', '& p': { mb: 3, color: 'rgba(255,255,255,0.78)', fontSize: '1.0625rem', lineHeight: 1.7 } }}>
+            <Box sx={{ maxWidth: '62ch', '& p': { mb: 3, color: 'rgba(234,242,239,0.78)', fontSize: '1.0625rem', lineHeight: 1.7 } }}>
               <Typography component="p">
                 I'm a 23-year-old software engineer who spends every hour of PTO on a plane. This
                 site is where I keep the places I've been so I don't lose them.
@@ -91,11 +91,11 @@ const About = () => {
                   px: 3.5,
                   py: 1.5,
                   borderRadius: 999,
-                  bgcolor: 'var(--coral)',
+                  bgcolor: 'var(--accent)',
                   color: 'var(--ink-deep)',
                   fontWeight: 700,
                   transition: 'transform 0.25s ease, background-color 0.25s ease',
-                  '&:hover': { transform: 'translateY(-2px)', bgcolor: 'var(--coral-lift)' },
+                  '&:hover': { transform: 'translateY(-2px)', bgcolor: 'var(--accent-lift)' },
                 }}
               >
                 All {trips.length} trips
@@ -109,7 +109,7 @@ const About = () => {
                   borderBottom: '2px solid transparent',
                   pb: '2px',
                   transition: 'color 0.25s ease, border-color 0.25s ease',
-                  '&:hover': { color: 'var(--paper)', borderColor: 'var(--coral)' },
+                  '&:hover': { color: 'var(--paper)', borderColor: 'var(--accent)' },
                 }}
               >
                 Say hello

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-// Shown once per browser session, on the first page opened: a coral hairline
+// Shown once per browser session, on the first page opened: an accent hairline
 // draws under the name, then the curtain lifts off the top of the page.
 // The animation is pure CSS with fill-mode forwards, so the curtain ends lifted
 // and hidden even if the unmount timer below never runs.

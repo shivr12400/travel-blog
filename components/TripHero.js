@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Box, Container, Typography, Avatar, Tooltip } from '@mui/material';
+import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import { motion, useReducedMotion } from 'framer-motion';
 
-const TripHero = ({ imageUrl, title, dates, blurb, travelers = [], photoCount }) => {
+const TripHero = ({ imageUrl, imagePosition = 'center', title, dates, blurb, travelers = [], photoCount, itinerary }) => {
   const reduceMotion = useReducedMotion();
   const [spread, setSpread] = useState(false);
 
@@ -40,6 +41,7 @@ const TripHero = ({ imageUrl, title, dates, blurb, travelers = [], photoCount })
           width: '100%',
           height: '100%',
           objectFit: 'cover',
+          objectPosition: imagePosition,
         }}
       />
       <Box
@@ -47,24 +49,66 @@ const TripHero = ({ imageUrl, title, dates, blurb, travelers = [], photoCount })
           position: 'absolute',
           inset: 0,
           background:
-            'linear-gradient(to top, var(--ink) 0%, rgba(10,26,47,0.88) 34%, rgba(10,26,47,0.35) 100%)',
+            'linear-gradient(to top, var(--ink) 0%, rgba(36,20,26,0.88) 34%, rgba(36,20,26,0.35) 100%)',
         }}
       />
 
       <Container maxWidth="lg" sx={{ position: 'relative', pb: { xs: 6, md: 9 }, pt: 16 }}>
-        <Box sx={{ overflow: 'hidden', mb: 1.5 }}>
-          <Typography
-            component={motion.p}
-            {...rise(0.15)}
-            sx={{
-              m: 0,
-              color: 'var(--coral)',
-              fontWeight: 600,
-              fontSize: 'clamp(0.95rem, 1.6vw, 1.15rem)',
-            }}
-          >
-            {dates}
-          </Typography>
+        <Box
+          sx={{
+            mb: 1.5,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: 2,
+            flexWrap: 'wrap',
+          }}
+        >
+          <Box sx={{ overflow: 'hidden' }}>
+            <Typography
+              component={motion.p}
+              {...rise(0.15)}
+              sx={{
+                m: 0,
+                color: 'var(--accent)',
+                fontWeight: 600,
+                fontSize: 'clamp(0.95rem, 1.6vw, 1.15rem)',
+              }}
+            >
+              {dates}
+            </Typography>
+          </Box>
+
+          {itinerary && (
+            <Box
+              component={motion.a}
+              href={itinerary}
+              download
+              initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              sx={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 1,
+                px: 2,
+                py: 1,
+                borderRadius: 999,
+                border: '1px solid rgba(234,242,239,0.28)',
+                bgcolor: 'rgba(36,20,26,0.45)',
+                backdropFilter: 'blur(8px)',
+                color: 'var(--paper)',
+                fontSize: '0.9rem',
+                fontWeight: 600,
+                textDecoration: 'none',
+                transition: 'background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease',
+                '&:hover': { bgcolor: 'var(--accent)', borderColor: 'var(--accent)', color: 'var(--ink-deep)' },
+              }}
+            >
+              <FileDownloadOutlinedIcon sx={{ fontSize: '1.15rem' }} />
+              Download the itinerary
+            </Box>
+          )}
         </Box>
 
         <Box sx={{ overflow: 'hidden', pb: '0.08em' }}>
@@ -78,7 +122,7 @@ const TripHero = ({ imageUrl, title, dates, blurb, travelers = [], photoCount })
             <Typography
               component={motion.p}
               {...rise(0.38)}
-              sx={{ m: 0, maxWidth: '46ch', fontSize: '1.125rem', color: 'rgba(255,255,255,0.78)' }}
+              sx={{ m: 0, maxWidth: '46ch', fontSize: '1.125rem', color: 'rgba(234,242,239,0.78)' }}
             >
               {blurb}
             </Typography>

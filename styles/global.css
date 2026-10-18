@@ -1,24 +1,24 @@
 :root {
   /* Ground */
-  --ink: #102542;
-  --ink-deep: #0A1A2F;
-  --ink-raised: #1A3A63;
-  --ink-line: rgba(143, 169, 198, 0.22);
+  --ink: #361F27;
+  --ink-deep: #24141A;
+  --ink-raised: #4A2D37;
+  --ink-line: rgba(234, 242, 239, 0.16);
 
   /* Paper — the back of a print */
-  --paper: #FFFFFF;
-  --paper-shade: #E3E8EF;
-  --ink-on-paper: #102542;
+  --paper: #EAF2EF;
+  --paper-shade: #D3DFDA;
+  --ink-on-paper: #361F27;
 
   /* Accent */
-  --coral: #F87060;
-  --coral-lift: #FF8B7C;
-  --haze: #8FA9C6;
+  --accent: #A5C4D4;
+  --accent-lift: #C3D8E3;
+  --haze: #A9BCB5;
 
   --font-display: 'Bricolage Grotesque', 'Trebuchet MS', sans-serif;
   --font-text: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-  --shadow-card: 0 18px 40px -18px rgba(4, 12, 24, 0.9);
+  --shadow-card: 0 18px 40px -18px rgba(18, 8, 12, 0.9);
 }
 
 html,
@@ -46,12 +46,12 @@ img {
 }
 
 ::selection {
-  background: var(--coral);
+  background: var(--accent);
   color: var(--ink-deep);
 }
 
 :focus-visible {
-  outline: 2px solid var(--coral);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -82,7 +82,7 @@ img {
 .intro-rule {
   height: 3px;
   margin-top: 16px;
-  background: var(--coral);
+  background: var(--accent);
   transform-origin: left center;
   animation: intro-draw 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
 }

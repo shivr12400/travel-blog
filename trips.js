@@ -1,9 +1,38 @@
 // One list of trips, used by the home page and the archive so they never drift apart.
 import { travelersData as who } from './travelersData';
 
-export const trips = [
+export const allTrips = [
+  {
+    id: 'nantucketNewport',
+    href: '/nantucketNewport',
+    dataKey: 'nantucketNewport',
+    title: 'Newport & Nantucket',
+    region: 'Newport, Hyannis & Nantucket',
+    dates: 'Sep 3 – 7, 2026',
+    year: 2026,
+    blurb: 'Castle Hill Inn, a day of bikes and lobster rolls on Nantucket, and Hyannis in between.',
+    cover: '/images/nantucketNewport/castleHillSunset.jpg',
+    itinerary: '/itineraries/newport-nantucket-itinerary.pdf',
+    coverPosition: 'center 64%',
+    travelers: [who.Roma, who.Shreel, who.Diya, who.Shivani, who.Malhar],
+  },
+  {
+    id: 'croatia',
+    href: '/croatia',
+    dataKey: 'croatia',
+    title: 'Croatia',
+    region: 'Split, Hvar & Dubrovnik',
+    dates: 'Aug 8 – 16, 2026',
+    year: 2026,
+    blurb: 'Krka, a boat day around Hvar, and the walls of Dubrovnik.',
+    cover: '/images/croatia/boatGroup.jpg',
+    coverPosition: 'center 15%',
+    itinerary: '/itineraries/croatia-itinerary.pdf',
+    travelers: [who.Mehak, who.Akriti, who.Anushka, who.Shrey, who.Hari, who.Hanish, who.Cadan, who.Sankya, who.Abhi, who.Dhruvit, who.Preneet, who.Nikhil],
+  },
   {
     id: 'india25',
+    hidden: true,
     href: '/india25',
     dataKey: 'india25',
     title: 'India',
@@ -18,7 +47,22 @@ export const trips = [
     ],
   },
   {
+    id: 'singaporeJavaLombok',
+    href: '/singaporeJavaLombok',
+    dataKey: 'singaporeJavaLombok',
+    title: 'Singapore, Java & Lombok',
+    region: 'Singapore & Indonesia',
+    dates: 'Sep 17 – 29, 2025',
+    year: 2025,
+    blurb: 'Hawker stalls in Singapore, sunrise over Borobudur, and baby turtles on a Lombok beach.',
+    cover: '/images/singaporeJavaLombok/borobudurSunrise.jpg',
+    itinerary: '/itineraries/singapore-java-lombok-itinerary.pdf',
+    coverPosition: 'center 40%',
+    travelers: [who.Mom, who.Dad],
+  },
+  {
     id: 'india24',
+    hidden: true,
     href: '/india24',
     dataKey: 'india24',
     title: 'India',
@@ -39,10 +83,12 @@ export const trips = [
     year: 2024,
     blurb: 'Eight days of 6am tour buses, cliffs in the rain, and one €80 carry-on.',
     cover: '/images/galeway.jpg',
+    itinerary: '/itineraries/ireland-scotland-itinerary.pdf',
     travelers: [who.Rits, who.Hari],
   },
   {
     id: 'delaware',
+    hidden: true,
     href: '/del',
     dataKey: 'delaware',
     title: 'Bethany Beach',
@@ -52,7 +98,22 @@ export const trips = [
     blurb: 'A 24-hour trip that existed entirely so we could ride a boat.',
     cover: '/images/delBoat.jpg',
     travelers: [who.Shrey, who.Hari, who.Hanish, who.Cadan, who.Sankya, who.Abhi],
+  },  {
+    id: 'finlandEstonia',
+    href: '/finlandEstonia',
+    dataKey: 'finlandEstonia',
+    title: 'Finland & Estonia',
+    region: 'Helsinki & Tallinn',
+    dates: 'Apr 25 – 29, 2024',
+    year: 2024,
+    blurb: 'First solo weekend trip: Helsinki, then a ferry across the Gulf to Tallinn.',
+    cover: '/images/estonia.jpg',
+    itinerary: '/itineraries/finland-estonia-itinerary.pdf',
+    travelers: [],
   },
 ];
 
-export const tripById = (id) => trips.find((t) => t.id === id);
+// Hidden trips keep their data and pages but stay out of every trip list.
+export const trips = allTrips.filter((t) => !t.hidden);
+
+export const tripById = (id) => allTrips.find((t) => t.id === id);

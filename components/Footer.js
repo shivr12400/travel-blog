@@ -44,7 +44,7 @@ const Footer = () => (
                   color: 'var(--haze)',
                   fontSize: '0.9375rem',
                   fontWeight: 600,
-                  '&:hover': { color: 'var(--coral)' },
+                  '&:hover': { color: 'var(--accent)' },
                 }}
               >
                 {link.label}
@@ -58,7 +58,7 @@ const Footer = () => (
                   color: 'var(--haze)',
                   fontSize: '0.9375rem',
                   fontWeight: 600,
-                  '&:hover': { color: 'var(--coral)' },
+                  '&:hover': { color: 'var(--accent)' },
                 }}
               >
                 {link.label}

@@ -26,7 +26,7 @@ const StyledAppBar = styled(AppBar, {
   shouldForwardProp: (prop) => prop !== 'scrolled',
 })(({ theme, scrolled }) => ({
   transition: 'background-color 0.4s ease, padding 0.4s ease, border-color 0.4s ease',
-  backgroundColor: scrolled ? 'rgba(10, 26, 47, 0.86)' : 'transparent',
+  backgroundColor: scrolled ? 'rgba(36,20,26,0.86)' : 'transparent',
   backdropFilter: scrolled ? 'blur(14px)' : 'none',
   borderBottom: `1px solid ${scrolled ? 'var(--ink-line)' : 'transparent'}`,
   boxShadow: 'none',
@@ -57,7 +57,7 @@ const NavItem = styled(Link, {
     bottom: -6,
     height: 2,
     width: active ? '100%' : 0,
-    backgroundColor: 'var(--coral)',
+    backgroundColor: 'var(--accent)',
     transition: 'width 0.3s cubic-bezier(0.22, 1, 0.36, 1)',
   },
   '&:hover': { color: 'var(--paper)' },
@@ -87,7 +87,7 @@ const Navbar = () => {
               <Link href="/" aria-label="Shiv Rathod, home">
                 <Wordmark>
                   Shiv Rathod
-                  <Box component="span" sx={{ color: 'var(--coral)' }}>
+                  <Box component="span" sx={{ color: 'var(--accent)' }}>
                     .
                   </Box>
                 </Wordmark>
@@ -111,9 +111,9 @@ const Navbar = () => {
                   fontSize: '0.9375rem',
                   fontWeight: 600,
                   color: 'var(--ink-deep)',
-                  bgcolor: 'var(--coral)',
+                  bgcolor: 'var(--accent)',
                   transition: 'transform 0.25s ease, background-color 0.25s ease',
-                  '&:hover': { transform: 'translateY(-2px)', bgcolor: 'var(--coral-lift)' },
+                  '&:hover': { transform: 'translateY(-2px)', bgcolor: 'var(--accent-lift)' },
                 }}
               >
                 Say hello
@@ -149,7 +149,7 @@ const Navbar = () => {
               <Link href={item.path} onClick={() => setMobileOpen(false)} style={{ width: '100%' }}>
                 <Typography
                   variant="h4"
-                  sx={{ color: isActive(item.path) ? 'var(--coral)' : 'var(--paper)' }}
+                  sx={{ color: isActive(item.path) ? 'var(--accent)' : 'var(--paper)' }}
                 >
                   {item.title}
                 </Typography>

@@ -22,7 +22,7 @@ const TripFilter = ({ categories = [], selectedCategories = [], onCategoryToggle
         fontSize: '0.9375rem',
         fontWeight: 600,
         color: active ? 'var(--paper)' : 'var(--haze)',
-        borderBottom: `2px solid ${active ? 'var(--coral)' : 'transparent'}`,
+        borderBottom: `2px solid ${active ? 'var(--accent)' : 'transparent'}`,
         pb: '3px',
         transition: 'color 0.2s ease, border-color 0.2s ease',
         '&:hover': { color: 'var(--paper)' },
@@ -44,7 +44,7 @@ const TripFilter = ({ categories = [], selectedCategories = [], onCategoryToggle
         mb: { xs: 4, md: 6 },
       }}
     >
-      <Typography sx={{ color: 'rgba(143,169,198,0.75)', fontSize: '0.9375rem' }}>Show</Typography>
+      <Typography sx={{ color: 'rgba(169,188,181,0.75)', fontSize: '0.9375rem' }}>Show</Typography>
       {item('Everything', all, onClear)}
       {categories.map((category) =>
         item(category, selectedCategories.includes(category), () => onCategoryToggle(category))

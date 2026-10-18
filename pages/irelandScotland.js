@@ -12,6 +12,7 @@ const IrelandScotland = () => (
     dates={trip.dates}
     blurb={trip.blurb}
     travelers={trip.travelers}
+    itinerary={trip.itinerary}
   />
 );
 

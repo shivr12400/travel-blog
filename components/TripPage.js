@@ -11,7 +11,7 @@ import { toPhotos, categoriesOf } from '../tripUtils';
 
 const TripMap = dynamic(() => import('./TripMap'), { ssr: false });
 
-const TripPage = ({ tripData = [], coverImage, title, dates, blurb, travelers = [] }) => {
+const TripPage = ({ tripData = [], coverImage, coverPosition, title, dates, blurb, travelers = [], itinerary }) => {
   const [selectedCategories, setSelectedCategories] = useState([]);
 
   const photos = useMemo(() => toPhotos(tripData), [tripData]);
@@ -38,11 +38,13 @@ const TripPage = ({ tripData = [], coverImage, title, dates, blurb, travelers = 
         <BackButton />
         <TripHero
           imageUrl={coverImage}
+          imagePosition={coverPosition}
           title={title}
           dates={dates}
           blurb={blurb}
           travelers={travelers}
           photoCount={photos.length}
+          itinerary={itinerary}
         />
       </Box>
 

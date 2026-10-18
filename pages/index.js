@@ -56,7 +56,7 @@ const Home = () => {
                 component={motion.h1}
                 variant="h1"
                 {...rise(0.22)}
-                sx={{ m: 0, color: 'var(--coral)' }}
+                sx={{ m: 0, color: 'var(--accent)' }}
               >
                 over
               </Typography>
@@ -66,7 +66,7 @@ const Home = () => {
               <Typography
                 component={motion.p}
                 {...rise(0.4)}
-                sx={{ m: 0, maxWidth: '40ch', fontSize: '1.1875rem', color: 'rgba(255,255,255,0.78)' }}
+                sx={{ m: 0, maxWidth: '40ch', fontSize: '1.1875rem', color: 'rgba(234,242,239,0.78)' }}
               >
                 Photographs from everywhere I've been, with the story of each one written on the
                 back. Pick a trip, then start flipping.
@@ -87,11 +87,11 @@ const Home = () => {
                   px: 3.5,
                   py: 1.5,
                   borderRadius: 999,
-                  bgcolor: 'var(--coral)',
+                  bgcolor: 'var(--accent)',
                   color: 'var(--ink-deep)',
                   fontWeight: 700,
                   transition: 'transform 0.25s ease, background-color 0.25s ease',
-                  '&:hover': { transform: 'translateY(-2px)', bgcolor: 'var(--coral-lift)' },
+                  '&:hover': { transform: 'translateY(-2px)', bgcolor: 'var(--accent-lift)' },
                 }}
               >
                 See the trips
@@ -105,7 +105,7 @@ const Home = () => {
                   borderBottom: '2px solid transparent',
                   pb: '2px',
                   transition: 'color 0.25s ease, border-color 0.25s ease',
-                  '&:hover': { color: 'var(--paper)', borderColor: 'var(--coral)' },
+                  '&:hover': { color: 'var(--paper)', borderColor: 'var(--accent)' },
                 }}
               >
                 Where I'm going next
@@ -154,10 +154,10 @@ const Home = () => {
                       pt: 7,
                       pb: 2.5,
                       textAlign: 'left',
-                      background: 'linear-gradient(to top, rgba(10,26,47,0.9), rgba(10,26,47,0))',
+                      background: 'linear-gradient(to top, rgba(36,20,26,0.9), rgba(36,20,26,0))',
                     }}
                   >
-                    <Typography sx={{ color: 'var(--coral)', fontWeight: 700, fontSize: '0.9375rem' }}>
+                    <Typography sx={{ color: 'var(--accent)', fontWeight: 700, fontSize: '0.9375rem' }}>
                       Go on, click it
                     </Typography>
                   </Box>
@@ -165,7 +165,7 @@ const Home = () => {
               }
               back={
                 <>
-                  <Typography sx={{ fontSize: '0.875rem', fontWeight: 600, color: 'rgba(16,37,66,0.62)' }}>
+                  <Typography sx={{ fontSize: '0.875rem', fontWeight: 600, color: 'rgba(54,31,39,0.62)' }}>
                     {heroPrint.date}
                   </Typography>
                   <Typography
@@ -179,7 +179,7 @@ const Home = () => {
                   >
                     {heroPrint.location}
                   </Typography>
-                  <Typography sx={{ mt: 1, lineHeight: 1.62, color: 'rgba(16,37,66,0.88)' }}>
+                  <Typography sx={{ mt: 1, lineHeight: 1.62, color: 'rgba(54,31,39,0.88)' }}>
                     {heroPrint.note}
                   </Typography>
                 </>
@@ -212,7 +212,7 @@ const Home = () => {
               color: 'var(--haze)',
               borderBottom: '2px solid transparent',
               pb: '2px',
-              '&:hover': { color: 'var(--paper)', borderColor: 'var(--coral)' },
+              '&:hover': { color: 'var(--paper)', borderColor: 'var(--accent)' },
             }}
           >
             All {trips.length} trips
@@ -235,7 +235,7 @@ const Home = () => {
                 sx={{
                   display: 'block',
                   '&:hover img': { transform: 'scale(1.05)' },
-                  '&:hover .recent-title': { color: 'var(--coral)' },
+                  '&:hover .recent-title': { color: 'var(--accent)' },
                 }}
               >
                 <Box
@@ -261,7 +261,7 @@ const Home = () => {
                     }}
                   />
                 </Box>
-                <Typography sx={{ color: 'var(--coral)', fontWeight: 600, fontSize: '0.875rem' }}>
+                <Typography sx={{ color: 'var(--accent)', fontWeight: 600, fontSize: '0.875rem' }}>
                   {trip.dates}
                 </Typography>
                 <Typography variant="h3" className="recent-title" sx={{ transition: 'color 0.3s ease' }}>

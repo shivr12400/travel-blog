@@ -20,12 +20,12 @@ const BackButton = ({ href = '/pasttrips', label = 'All trips' }) => (
       fontSize: '0.875rem',
       fontWeight: 600,
       color: 'var(--paper)',
-      bgcolor: 'rgba(10,26,47,0.55)',
+      bgcolor: 'rgba(36,20,26,0.55)',
       backdropFilter: 'blur(10px)',
       border: '1px solid var(--ink-line)',
       transition: 'background-color 0.25s ease, gap 0.25s ease',
-      '&:hover': { bgcolor: 'rgba(10,26,47,0.85)', gap: 1.5 },
-      '& span:first-of-type': { color: 'var(--coral)', lineHeight: 1 },
+      '&:hover': { bgcolor: 'rgba(36,20,26,0.85)', gap: 1.5 },
+      '& span:first-of-type': { color: 'var(--accent)', lineHeight: 1 },
     }}
   >
     <span aria-hidden="true">&#8592;</span>
