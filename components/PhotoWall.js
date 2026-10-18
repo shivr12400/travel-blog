@@ -2,7 +2,7 @@ import React, { useMemo, useRef, useState } from 'react';
 import { Box, IconButton, Typography } from '@mui/material';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { motion, useReducedMotion } from 'framer-motion';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import FlipPrint from './FlipPrint';
 import { groupByDate, stackOrientation } from '../tripUtils';
 
@@ -207,6 +207,16 @@ const PhotoBack = ({ photo, inStack }) => (
 const ARROW = { '@media (hover: none) and (pointer: coarse)': { display: 'none' } };
 const SWIPE_DISTANCE = 40;
 
+// Paging slides the next print in from the side you're heading toward, inside
+// the frame so the wall itself doesn't move.
+const slide = {
+  enter: ({ direction, reduceMotion }) =>
+    reduceMotion ? { opacity: 0 } : { x: direction > 0 ? '100%' : '-100%', opacity: 0.6 },
+  center: { x: 0, opacity: 1 },
+  exit: ({ direction, reduceMotion }) =>
+    reduceMotion ? { opacity: 0 } : { x: direction > 0 ? '-100%' : '100%', opacity: 0.6 },
+};
+
 const StackControls = ({ position, count, onStep }) => (
   <Box
     onKeyDown={(e) => {
@@ -245,10 +255,14 @@ const PhotoCard = ({ stack, index, layout, reduceMotion }) => {
   const { span, aspect } = layout;
   const portrait = stackOrientation(stack) === 'portrait';
   const [position, setPosition] = useState(0);
+  const [direction, setDirection] = useState(1);
   const inStack = stack.length > 1;
   const photo = stack[Math.min(position, stack.length - 1)];
 
-  const step = (delta) => setPosition((p) => (p + delta + stack.length) % stack.length);
+  const step = (delta) => {
+    setDirection(delta);
+    setPosition((p) => (p + delta + stack.length) % stack.length);
+  };
 
   // A sideways swipe pages through the day; anything more vertical is left to
   // the page scroll. The tap that ends a swipe mustn't turn the print over.
@@ -296,7 +310,22 @@ const PhotoCard = ({ stack, index, layout, reduceMotion }) => {
       <Box {...swipe} sx={{ touchAction: inStack ? 'pan-y' : 'auto' }}>
         <FlipPrint
           label={photo.location || 'this photograph'}
-          front={<PhotoFront key={photo.id} photo={photo} inStack={inStack} />}
+          front={
+            <AnimatePresence initial={false} custom={{ direction, reduceMotion }}>
+              <motion.div
+                key={photo.id}
+                custom={{ direction, reduceMotion }}
+                variants={slide}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={reduceMotion ? { duration: 0.2 } : { duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                style={{ position: 'absolute', inset: 0 }}
+              >
+                <PhotoFront photo={photo} inStack={inStack} />
+              </motion.div>
+            </AnimatePresence>
+          }
           back={<PhotoBack photo={photo} inStack={inStack} />}
           sx={{ aspectRatio: { xs: portrait ? '4 / 5' : span === 12 ? '3 / 2' : '4 / 3', md: `${aspect}` } }}
         />
