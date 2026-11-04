@@ -66,7 +66,7 @@ const Home = () => {
               <Typography
                 component={motion.p}
                 {...rise(0.4)}
-                sx={{ m: 0, maxWidth: '40ch', fontSize: '1.1875rem', color: 'rgba(234,242,239,0.78)' }}
+                sx={{ m: 0, maxWidth: '40ch', fontSize: '1.1875rem', color: 'rgba(236,243,158,0.78)' }}
               >
                 Photographs from everywhere I've been, with the story of each one written on the
                 back. Pick a trip, then start flipping.
@@ -154,7 +154,7 @@ const Home = () => {
                       pt: 7,
                       pb: 2.5,
                       textAlign: 'left',
-                      background: 'linear-gradient(to top, rgba(36,20,26,0.9), rgba(36,20,26,0))',
+                      background: 'linear-gradient(to top, rgba(11,26,11,0.9), rgba(11,26,11,0))',
                     }}
                   >
                     <Typography sx={{ color: 'var(--accent)', fontWeight: 700, fontSize: '0.9375rem' }}>
@@ -165,7 +165,7 @@ const Home = () => {
               }
               back={
                 <>
-                  <Typography sx={{ fontSize: '0.875rem', fontWeight: 600, color: 'rgba(54,31,39,0.62)' }}>
+                  <Typography sx={{ fontSize: '0.875rem', fontWeight: 600, color: 'rgba(19,42,19,0.62)' }}>
                     {heroPrint.date}
                   </Typography>
                   <Typography
@@ -179,7 +179,7 @@ const Home = () => {
                   >
                     {heroPrint.location}
                   </Typography>
-                  <Typography sx={{ mt: 1, lineHeight: 1.62, color: 'rgba(54,31,39,0.88)' }}>
+                  <Typography sx={{ mt: 1, lineHeight: 1.62, color: 'rgba(19,42,19,0.88)' }}>
                     {heroPrint.note}
                   </Typography>
                 </>

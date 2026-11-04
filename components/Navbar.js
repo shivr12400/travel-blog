@@ -26,7 +26,7 @@ const StyledAppBar = styled(AppBar, {
   shouldForwardProp: (prop) => prop !== 'scrolled',
 })(({ theme, scrolled }) => ({
   transition: 'background-color 0.4s ease, padding 0.4s ease, border-color 0.4s ease',
-  backgroundColor: scrolled ? 'rgba(36,20,26,0.86)' : 'transparent',
+  backgroundColor: scrolled ? 'rgba(11,26,11,0.86)' : 'transparent',
   backdropFilter: scrolled ? 'blur(14px)' : 'none',
   borderBottom: `1px solid ${scrolled ? 'var(--ink-line)' : 'transparent'}`,
   boxShadow: 'none',

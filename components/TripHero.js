@@ -49,7 +49,7 @@ const TripHero = ({ imageUrl, imagePosition = 'center', title, dates, blurb, tra
           position: 'absolute',
           inset: 0,
           background:
-            'linear-gradient(to top, var(--ink) 0%, rgba(36,20,26,0.88) 34%, rgba(36,20,26,0.35) 100%)',
+            'linear-gradient(to top, var(--ink) 0%, rgba(11,26,11,0.88) 34%, rgba(11,26,11,0.35) 100%)',
         }}
       />
 
@@ -94,8 +94,8 @@ const TripHero = ({ imageUrl, imagePosition = 'center', title, dates, blurb, tra
                 px: 2,
                 py: 1,
                 borderRadius: 999,
-                border: '1px solid rgba(234,242,239,0.28)',
-                bgcolor: 'rgba(36,20,26,0.45)',
+                border: '1px solid rgba(236,243,158,0.28)',
+                bgcolor: 'rgba(11,26,11,0.45)',
                 backdropFilter: 'blur(8px)',
                 color: 'var(--paper)',
                 fontSize: '0.9rem',
@@ -122,7 +122,7 @@ const TripHero = ({ imageUrl, imagePosition = 'center', title, dates, blurb, tra
             <Typography
               component={motion.p}
               {...rise(0.38)}
-              sx={{ m: 0, maxWidth: '46ch', fontSize: '1.125rem', color: 'rgba(234,242,239,0.78)' }}
+              sx={{ m: 0, maxWidth: '46ch', fontSize: '1.125rem', color: 'rgba(236,243,158,0.78)' }}
             >
               {blurb}
             </Typography>

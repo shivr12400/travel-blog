@@ -71,7 +71,7 @@ const TripRow = ({ trip, index, reduceMotion }) => (
         <Typography sx={{ color: 'var(--haze)', fontSize: '1.0625rem', mb: 2 }}>
           {trip.region}
         </Typography>
-        <Typography sx={{ maxWidth: '44ch', color: 'rgba(234,242,239,0.78)', mb: 2.5 }}>
+        <Typography sx={{ maxWidth: '44ch', color: 'rgba(236,243,158,0.78)', mb: 2.5 }}>
           {trip.blurb}
         </Typography>
         <Typography sx={{ color: 'var(--haze)', fontSize: '0.875rem' }}>

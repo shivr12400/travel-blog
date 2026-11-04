@@ -86,7 +86,7 @@ const PhotoFront = ({ photo, inStack }) => {
             display: 'flex',
             alignItems: 'flex-start',
             p: 3,
-            background: 'repeating-linear-gradient(135deg, var(--ink-raised) 0 14px, #42262F 14px 28px)',
+            background: 'repeating-linear-gradient(135deg, var(--ink-raised) 0 14px, #1A341A 14px 28px)',
           }}
         >
           <Typography variant="body2" sx={{ color: 'var(--haze)', textAlign: 'left' }}>
@@ -111,7 +111,7 @@ const PhotoFront = ({ photo, inStack }) => {
           flexWrap: 'wrap',
           pr: inStack ? 15 : 2,
           textAlign: 'left',
-          background: 'linear-gradient(to top, rgba(36,20,26,0.88), rgba(36,20,26,0))',
+          background: 'linear-gradient(to top, rgba(11,26,11,0.88), rgba(11,26,11,0))',
           opacity: { xs: 1, md: 0 },
           transform: { md: 'translateY(6px)' },
           transition: 'opacity 0.35s ease, transform 0.35s ease',
@@ -140,7 +140,7 @@ const PhotoFront = ({ photo, inStack }) => {
 const PhotoBack = ({ photo, inStack }) => (
   <>
     <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 2 }}>
-      <Typography component="span" sx={{ fontSize: '0.875rem', fontWeight: 600, color: 'rgba(54,31,39,0.62)' }}>
+      <Typography component="span" sx={{ fontSize: '0.875rem', fontWeight: 600, color: 'rgba(19,42,19,0.62)' }}>
         {photo.date}
       </Typography>
       {photo.category && (
@@ -170,7 +170,7 @@ const PhotoBack = ({ photo, inStack }) => (
       {photo.location}
     </Typography>
 
-    <Typography sx={{ fontSize: '0.9375rem', color: 'rgba(54,31,39,0.7)', fontStyle: 'italic' }}>
+    <Typography sx={{ fontSize: '0.9375rem', color: 'rgba(19,42,19,0.7)', fontStyle: 'italic' }}>
       {photo.dayName && photo.dayName !== photo.location
         ? `Day ${photo.day} — ${photo.dayName}`
         : `Day ${photo.day}`}
@@ -192,7 +192,7 @@ const PhotoBack = ({ photo, inStack }) => (
           fontSize: { xs: '0.9375rem', md: '1rem' },
           lineHeight: 1.62,
           maxWidth: '62ch',
-          color: 'rgba(54,31,39,0.88)',
+          color: 'rgba(19,42,19,0.88)',
         }}
       >
         {photo.description || 'Nothing written on the back of this one.'}
@@ -234,7 +234,7 @@ const StackControls = ({ position, count, onStep }) => (
       px: 0.5,
       '@media (hover: none) and (pointer: coarse)': { px: 1.5, py: 0.75 },
       borderRadius: 999,
-      bgcolor: 'rgba(36,20,26,0.78)',
+      bgcolor: 'rgba(11,26,11,0.78)',
       backdropFilter: 'blur(6px)',
       color: 'var(--paper)',
     }}

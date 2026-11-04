@@ -44,7 +44,7 @@ const TripFilter = ({ categories = [], selectedCategories = [], onCategoryToggle
         mb: { xs: 4, md: 6 },
       }}
     >
-      <Typography sx={{ color: 'rgba(169,188,181,0.75)', fontSize: '0.9375rem' }}>Show</Typography>
+      <Typography sx={{ color: 'rgba(144,169,85,0.75)', fontSize: '0.9375rem' }}>Show</Typography>
       {item('Everything', all, onClear)}
       {categories.map((category) =>
         item(category, selectedCategories.includes(category), () => onCategoryToggle(category))

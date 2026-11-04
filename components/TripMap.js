@@ -48,9 +48,9 @@ const TripMap = ({ activities = [] }) => {
             center={act.coordinates}
             radius={8}
             pathOptions={{
-              color: '#A5C4D4',
+              color: '#90A955',
               weight: 2,
-              fillColor: '#A5C4D4',
+              fillColor: '#90A955',
               fillOpacity: 0.55,
             }}
           >

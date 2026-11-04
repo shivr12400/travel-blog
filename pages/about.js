@@ -68,7 +68,7 @@ const About = () => {
               “I want to show my future generations I was a cool guy.”
             </Typography>
 
-            <Box sx={{ maxWidth: '62ch', '& p': { mb: 3, color: 'rgba(234,242,239,0.78)', fontSize: '1.0625rem', lineHeight: 1.7 } }}>
+            <Box sx={{ maxWidth: '62ch', '& p': { mb: 3, color: 'rgba(236,243,158,0.78)', fontSize: '1.0625rem', lineHeight: 1.7 } }}>
               <Typography component="p">
                 I'm a 23-year-old software engineer who spends every hour of PTO on a plane. This
                 site is where I keep the places I've been so I don't lose them.

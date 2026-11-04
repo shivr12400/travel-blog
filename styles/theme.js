@@ -1,18 +1,18 @@
-// theme.js — tokens for "the back of the photograph": plum ground, mint paper, blue accent
+// theme.js — tokens for "the back of the photograph": forest ground, lime paper, moss accent
 
 import { createTheme } from '@mui/material/styles';
 
 export const palette = {
-  ink: '#361F27',
-  inkDeep: '#24141A',
-  inkRaised: '#4A2D37',
-  inkLine: 'rgba(234, 242, 239, 0.16)',
-  paper: '#EAF2EF',
-  paperShade: '#D3DFDA',
-  inkOnPaper: '#361F27',
-  accent: '#A5C4D4',
-  accentLift: '#C3D8E3',
-  haze: '#A9BCB5',
+  ink: '#132A13',
+  inkDeep: '#0B1A0B',
+  inkRaised: '#1F3A1F',
+  inkLine: 'rgba(236,243,158, 0.16)',
+  paper: '#ECF39E',
+  paperShade: '#DCE48A',
+  inkOnPaper: '#132A13',
+  accent: '#90A955',
+  accentLift: '#A9BF72',
+  haze: '#90A955',
 };
 
 const display = "'Bricolage Grotesque', 'Trebuchet MS', sans-serif";
